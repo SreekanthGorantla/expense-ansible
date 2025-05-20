@@ -62,8 +62,8 @@
       login_host: mysql.sreeaws.space
       target: /app/schema/backend.sql
 
-  - name: daemon-reload and restart service
-    ansible.builtin.systemd_services:
+  - name: daemon reload and restart service
+    ansible.builtin.systemd_service:
       enabled: true
       state: restarted
       daemon_reload: true
