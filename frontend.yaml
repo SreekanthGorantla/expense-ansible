@@ -16,12 +16,12 @@
   - name: delete html directory
     ansible.builtin.file:
       path: /usr/share/nginx/html
-      state: absent
+      state: absent # this deletes the whole path/file
 
   - name: create html directory
     ansible.builtin.file:
       path: /usr/share/nginx/html
-      state: directory
+      state: directory  # this will create the directory
 
   - name: download frontend code
     ansible.builtin.get_url:
@@ -30,9 +30,9 @@
 
   - name: Unzip frontend code
     ansible.builtin.unarchive:
-      src: /tmp/frontend.zip
-      dest: /usr/share/nginx/html
-      remote_src: yes
+      src: /tmp/frontend.zip    # this we have placed the downloaded file
+      dest: /usr/share/nginx/html # we are sending to this location
+      remote_src: yes   # this will give you access the remote location
 
   - name: copy expense config
     ansible.builtin.copy:
