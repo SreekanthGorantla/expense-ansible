@@ -12,12 +12,12 @@
     - cryptography
     - PyMySQL
 
-  - name: install MySQL server
+  - name: Install MySQL server
     ansible.builtin.package:
       name: mysql-server
       state: installed
       
-  - name: start and enable MySQL server
+  - name: Start and enable MySQL server
     ansible.builtin.service:
       name: mysqld
       state: started
